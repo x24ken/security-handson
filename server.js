@@ -16,7 +16,7 @@ app.get('/', (req, res, next) => {
 
 app.get("/csp", (req, res) => {
     const nonceValue = crypto.randomBytes(16).toString("base64")
-    res.header("Content-Security-Policy", `script-src 'nonce-${nonceValue}'`)
+    res.header("Content-Security-Policy", `script-src 'nonce-${nonceValue}' 'strict-dynamic'`)
     res.render("csp", { nonce: nonceValue })
 })
 
